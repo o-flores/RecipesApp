@@ -11,7 +11,7 @@ export default function Header({ title, withIconSearch = true }) {
   const { toggleSearchBar, setToggleSearchBar } = useHeader();
   return (
     <Container fluid>
-      <Row className="m-1">
+      <Row className="p-2">
         <Link to="/perfil">
           <Image
             data-testid="profile-top-btn"
@@ -32,6 +32,7 @@ export default function Header({ title, withIconSearch = true }) {
                 <Image
                   onClick={ () => setToggleSearchBar(!toggleSearchBar) }
                   data-testid="search-top-btn"
+                  className={ toggleSearchBar ? 'iconeAtivo' : '' }
                   src={ iconSearch }
                 />
               </span>)}

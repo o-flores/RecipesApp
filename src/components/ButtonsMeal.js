@@ -23,21 +23,21 @@ function ButtonsMeal() {
   }
 
   return (
-    <Link to={ `/comidas/${id}/in-progress` }>
+    <Link to={ `/comidas/${id}/in-progress` } className="startRecipe">
       { !checkRecipeDone(id)
           && (checkRecipeInProgress(id)
             ? (
               <button
-                style={ { position: 'fixed', bottom: '0', left: 0, zIndex: '10' } }
                 type="button"
                 data-testid="start-recipe-btn"
+                className="btn btn-danger"
               >
                 Continuar Receita
               </button>)
             : (
               <button
-                style={ { position: 'fixed', bottom: '0', right: 0, zIndex: '10' } }
                 type="button"
+                className="btn btn-danger"
                 data-testid="start-recipe-btn"
               >
                 Iniciar Receita

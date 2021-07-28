@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Col, Container, Image, Row } from 'react-bootstrap';
+import { Container, Image, Row } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import useSearchBar from '../hooks/searchBar';
 import { getMealApi } from '../services/api';
@@ -8,6 +8,7 @@ import CarouselDrink from '../components/VideoAndCarouselDrink';
 import ShareButton from '../components/ShareButton';
 import FavoriteButton from '../components/FavoriteButton';
 import ButtonsMeal from '../components/ButtonsMeal';
+import '../styles/Recipes.css';
 
 export default function RecipeDetail() {
   const { selectedMeal,
@@ -37,10 +38,10 @@ export default function RecipeDetail() {
       }
     };
     handleStateMeal();
-  }, [pathname, setSelectedMeal, id, setIngredientsMeal]);
+  }, []);
 
   return (
-    <div>
+    <div id="recipeDetail">
       <Image
         data-testid="recipe-photo"
         src={ selectedMeal.strMealThumb }
@@ -48,19 +49,19 @@ export default function RecipeDetail() {
         fluid
       />
       <Container>
-        <Row>
-          <Col>
+        <>
+          <Row>
+            <p data-testid="recipe-category">{ selectedMeal.strCategory }</p>
+          </Row>
+          <Row>
             <h3 data-testid="recipe-title">{ selectedMeal.strMeal }</h3>
-          </Col>
-          <Col>
-            <ShareButton />
-          </Col>
-          <Col>
+          </Row>
+          <Row>
             <FavoriteButton />
-          </Col>
-        </Row>
+            <ShareButton />
+          </Row>
+        </>
       </Container>
-      <p data-testid="recipe-category">{ selectedMeal.strCategory }</p>
       <IngredientsMeal />
       <p data-testid="instructions">{ selectedMeal.strInstructions }</p>
       <CarouselDrink />

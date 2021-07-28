@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import shareIcon from '../images/shareIcon.svg';
@@ -24,13 +25,12 @@ export default function RecipesDoneCard({ recipe, index }) {
         shareIcon={ shareIcon }
       />)
       : (
-        <div>
+        <div className="recipeDoneCard">
           <Link to={ `/bebidas/${recipe.id}` }>
             <img
               data-testid={ `${index}-horizontal-image` }
               alt={ `foto do ${recipe.name}` }
               src={ recipe.image }
-              width="400px"
             />
             <p data-testid={ `${index}-horizontal-name` }>
               { recipe.name }
@@ -39,7 +39,10 @@ export default function RecipesDoneCard({ recipe, index }) {
           <p data-testid={ `${index}-horizontal-top-text` }>
             { recipe.alcoholicOrNot }
           </p>
-          <span data-testid={ `${index}-horizontal-done-date` }>
+          <span
+            className="dateRecipeDone"
+            data-testid={ `${index}-horizontal-done-date` }
+          >
             { recipe.doneDate }
           </span>
           { (recipe.tags !== undefined
@@ -56,10 +59,20 @@ export default function RecipesDoneCard({ recipe, index }) {
               }
               return null;
             }) : null }
-          { copyClipboard
-            ? <span>Link copiado!</span>
-            : (
+          {['right'].map((placement) => (
+            <OverlayTrigger
+              trigger="click"
+              key={ placement }
+              placement={ placement }
+              overlay={
+                <Tooltip id={ `tooltip- ${placement} ` }>
+                  Link
+                  <strong> Copiado</strong>
+                </Tooltip>
+              }
+            >
               <button
+                data-testid="share-btn"
                 type="button"
                 onClick={ () => handleShareButton() }
               >
@@ -69,10 +82,26 @@ export default function RecipesDoneCard({ recipe, index }) {
                   src={ shareIcon }
                 />
               </button>
-            )}
+              {/* <Button variant="secondary">Popover on {placement}</Button> */}
+            </OverlayTrigger>
+          ))}
         </div>
       )
   );
+/* { copyClipboard
+? <span>Link copiado!</span>
+: (
+<button
+type="button"
+onClick={ () => handleShareButton() }
+>
+<img
+  data-testid={ `${index}-horizontal-share-btn` }
+  alt="compartilhar"
+  src={ shareIcon }
+/>
+</button>
+)} */
 }
 
 RecipesDoneCard.propTypes = {

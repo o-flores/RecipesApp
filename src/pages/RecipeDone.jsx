@@ -4,13 +4,15 @@ import RecipeDoneList from '../components/RecipeDoneList';
 import useRecipesDone from '../hooks/recipesDone';
 
 function RecipesDone() {
-  const { recipesDone, setRecipesDone } = useRecipesDone();
+  const { recipesDone, setRecipesDone,
+    allRecipesDone, setAllRecipesDone } = useRecipesDone();
 
   useEffect(() => {
     const localStorageDoneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
     if (!localStorageDoneRecipes) return;
     setRecipesDone(localStorageDoneRecipes);
-  }, [setRecipesDone]);
+    setAllRecipesDone(localStorageDoneRecipes);
+  }, []);
 
   function filterAll() {
     const localStorageDoneRecipe = JSON.parse(localStorage.getItem('doneRecipes'));
@@ -20,7 +22,7 @@ function RecipesDone() {
 
   function filter(e) {
     if (recipesDone !== undefined) {
-      const filtered = recipesDone.filter((recipe) => (recipe.type === e));
+      const filtered = allRecipesDone.filter((recipe) => (recipe.type === e));
       setRecipesDone(filtered);
     }
     return null;
@@ -29,30 +31,35 @@ function RecipesDone() {
   return (
     <>
       <Header title="Receitas Feitas" withIconSearch={ false } />
-      <button
-        type="button"
-        data-testid="filter-by-all-btn"
-        onClick={ () => filterAll() }
-      >
-        All
-      </button>
-      <button
-        type="button"
-        value="comida"
-        data-testid="filter-by-food-btn"
-        onClick={ (e) => filter(e.target.value) }
-      >
-        Food
-      </button>
-      <button
-        type="button"
-        value="bebida"
-        data-testid="filter-by-drink-btn"
-        onClick={ (e) => filter(e.target.value) }
-      >
-        Drinks
-      </button>
-      <RecipeDoneList />
+      <div id="recipeDone">
+        <button
+          className="tagFilter"
+          type="button"
+          data-testid="filter-by-all-btn"
+          onClick={ () => filterAll() }
+        >
+          All
+        </button>
+        <button
+          className="tagFilter"
+          type="button"
+          value="comida"
+          data-testid="filter-by-food-btn"
+          onClick={ (e) => filter(e.target.value) }
+        >
+          Food
+        </button>
+        <button
+          className="tagFilter"
+          type="button"
+          value="bebida"
+          data-testid="filter-by-drink-btn"
+          onClick={ (e) => filter(e.target.value) }
+        >
+          Drinks
+        </button>
+        <RecipeDoneList />
+      </div>
     </>
   );
 }
