@@ -26,6 +26,12 @@ https://user-images.githubusercontent.com/78616220/127511177-76d4bda4-6b73-41d0-
 * **_Hooks_**
 * **_Bootstrap_**
 
+# :dancers:  Team
+* *__[Jesus](https://github.com/jepaur5)__*
+* *__[Jose Fagundes](https://github.com/jlfagundes)__*
+* *__[Igson Félix](https://github.com/igson660)__*
+* *__[Marcos Albuquerque](https://github.com/MarcosAlbuquerque)__*
+
 ## SetUp
 
 To run this project, install it locally using npm:
@@ -47,6 +53,6 @@ To run this project, install it locally using npm:
   npm i
 ```
 
-4. For last, run **npm start** to open the app in `http://localhost:3000/RecipesApp`.
+4. For last, run **npm start** to open the app in your browser
 
 ---
