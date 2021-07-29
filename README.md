@@ -25,3 +25,28 @@ https://user-images.githubusercontent.com/78616220/127511177-76d4bda4-6b73-41d0-
 * **_ContextAPI_**
 * **_Hooks_**
 * **_Bootstrap_**
+
+## SetUp
+
+To run this project, install it locally using npm:
+
+1. Open the terminal and create a local directory:
+```javascript
+  mkdir projects
+```
+
+2. Clone the project:
+```javascript
+  cd projects
+  git clone https://github.com/o-flores/RecipesApp.git
+```
+
+3. install dependencies:
+```javascript
+  cd RecipesApp
+  npm i
+```
+
+4. For last, run **npm start** to open the app in `http://localhost:3000/RecipesApp`.
+
+---
