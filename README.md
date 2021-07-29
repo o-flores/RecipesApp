@@ -6,6 +6,13 @@
   
   The main objective of this project was to put into practice all the knowledge acquired at Trybe in the Front-End module, creating a real and functional application.
   
+  with this project me and my team could learn more about functional Components, Context API, hooks, custom hooks, RTL and Jest. Also we could improve our communication, leadership and time management skills because we simulated working on a project in a real company.
+  
+  ### Main dificulties
+  * *Using more than one context within our App*
+  * *Working asynchronously*
+  * *Using RTL and Jest to mock functions*
+  
   ## Preview
 <div align="center">
 
