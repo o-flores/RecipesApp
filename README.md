@@ -8,10 +8,11 @@ The main objective of this project was to put into practice all the knowledge ac
   
 With this project me and my team could learn more about functional Components, Context API, hooks, custom hooks, RTL and Jest. Also we could improve our communication, leadership and time management skills because we simulated working on a project in a real company.
   
-  ### Main dificulties
-  * *Using more than one context within our App*
-  * *Working asynchronously*
-  * *Using RTL and Jest to mock functions*
+  ## :nerd_face: What I learned?
+  - **_How to use more than one context within our App_**
+  - **_How to work asynchronously with a team_**
+  - **_How to use RTL and Jest to mock functions_**
+  - **_How to create functional components_**
   
   ## Preview
 <div align="center">
