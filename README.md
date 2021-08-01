@@ -1,4 +1,4 @@
-# :man_cook: Recipes App :woman_cook:
+<h1 align="center" >:man_cook: Recipes App :woman_cook:</h1>
 
 <div align="center"><img src="https://raw.githubusercontent.com/o-flores/RecipesApp/main-group-7/src/images/Logo.svg" width="250px"/></div
 
